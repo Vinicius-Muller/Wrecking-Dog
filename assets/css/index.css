@@ -14,6 +14,11 @@
   max-height: 100%;
 }
 
-#player {
+#player,
+#layerOne,
+#layerTwo,
+#layerThree,
+#layerFour,
+#layerFive {
   display: none;
 }
