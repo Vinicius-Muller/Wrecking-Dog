@@ -19,6 +19,9 @@
 #layerTwo,
 #layerThree,
 #layerFour,
-#layerFive {
+#layerFive,
+#enemyFlying,
+#enemyPlant,
+#enemyBigSpider {
   display: none;
 }
