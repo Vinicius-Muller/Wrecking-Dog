@@ -22,6 +22,7 @@
 #layerFive,
 #enemyFlying,
 #enemyPlant,
-#enemyBigSpider {
+#enemyBigSpider,
+#fire {
   display: none;
 }
