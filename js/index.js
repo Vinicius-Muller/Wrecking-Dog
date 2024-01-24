@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
       this.score = 0;
       this.fontColor = "black";
       this.timer = 0;
-      this.maxTime = 2000;
+      this.maxTime = 10000;
       this.gameOver = false;
       this.player.currentState = this.player.states[0];
       this.player.currentState.enter();
