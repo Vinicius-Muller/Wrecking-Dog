@@ -8,7 +8,7 @@ export class CollisionAnimation {
     this.width = this.spriteWidth * this.sizeModifier;
     this.height = this.spriteHeight * this.sizeModifier;
     this.x = x - this.width * 0.5;
-    this.y = y - this.width * 0.5;
+    this.y = y - this.height * 0.5;
     this.frameX = 0;
     this.maxFrame = 4;
     this.markedToDeletion = false;

@@ -148,6 +148,8 @@ export class Diving extends State {
         this.game.player.y + this.game.player.height * 0.5
       )
     );
+    const flameSound = document.getElementById("flameSound");
+    flameSound.play();
     if(!input.includes("Control") && this.game.player.onGround()) {
       this.game.player.setState(states.RUNNING, 1);
     } else if(this.game.player.onGround()) {

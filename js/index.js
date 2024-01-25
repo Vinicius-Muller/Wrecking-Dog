@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
       this.score = 0;
       this.fontColor = "black";
       this.timer = 0;
-      this.maxTime = 10000;
+      this.maxTime = 100000;
       this.gameOver = false;
       this.player.currentState = this.player.states[0];
       this.player.currentState.enter();
@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
         if(particle.markedToDeletion) this.particles.splice(index, 1);
       });
       if(this.particles.length > this.maxParticles) {
-        this.particles = this.particles.slice(0, this.maxParticles);
+        this.particles.length = this.maxParticles;
       }
       this.collisions.forEach((collision, index) => {
         collision.update(deltaTime);

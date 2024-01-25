@@ -14,16 +14,6 @@
   max-height: 100%;
 }
 
-#player,
-#layerOne,
-#layerTwo,
-#layerThree,
-#layerFour,
-#layerFive,
-#enemyFlying,
-#enemyPlant,
-#enemyBigSpider,
-#fire,
-#collisionAnimation {
-  display: none;
+img, audio {
+  display: none !important;
 }
