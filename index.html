@@ -4,11 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
   <title>Wrecking Dog</title>
 </head>
 <body>
   <canvas id="canvas" class="canvas"></canvas>
   <img id="player" src="./assets/images/player.png" alt="Player">
+  <img id="layerOne" src="./assets/images/Battleground3/Bright/jungle_bg.png" alt="Layer-1">
+  <img id="layerTwo" src="./assets/images/Battleground3/Bright/Battleground3.png" alt="Layer-2">
+  <img id="layerThree" src="./assets/images/Battleground3/Bright/fireflys.png" alt="Layer-3">
+  <img id="layerFour" src="./assets/images/Battleground3/Bright/grasses.png" alt="Layer-4">
+  <img id="layerFive" src="./assets/images/Battleground3/Bright/grass&road.png" alt="Layer-5">
+  <img id="enemyFlying" src="./assets/images/enemy_fly.png" alt="enemy-flying">
+  <img id="enemyPlant" src="./assets/images/enemy_plant.png" alt="enemy-plant">
+  <img id="enemyBigSpider" src="./assets/images/enemy_spider_big.png" alt="enemy-big-spider">
+  <img id="fire" src="./assets/images/fire.png" alt="fire">
+  <img id="collisionAnimation" src="./assets/images/boom.png" alt="collision">
+  <audio id="hitSound" src="./assets/sounds/hit.wav"></audio>
+  <audio id="explosionSound" src="./assets/sounds/explosion.wav"></audio>
+  <audio id="flameSound" src="./assets/sounds/shortflame.wav"></audio>
+  <audio id="winSound" src="./assets/sounds/win.wav"></audio>
+  <main id="leaderBoard" class="leader-board">
+    <h1>Parabéns !</h1>
+    <div class="divider"></div>
+    <h4>Pontos: <strong id="score"></strong></h4>
+    <div class="divider"></div>
+    <div class="btn-wrap">
+      <button id="reloadBtn">Tentar Novamente</button>
+    </div>
+  </main>
+  <article id="tutorialView" class="tutorial-view">
+    <h3>Use as teclas a seguir para controlar o personagem</h3>
+    <img src="./assets/images/arrows.jpg" alt="Comandos">
+    <h3>Use a tecla <strong>Ctrl</strong> para acionar o poder de fogo</h3>
+    <h3>Precione a tecla <strong>Enter</strong> para começar</h3>
+  </article>
   <script type="module" src="./js/index.js"></script>
 </body>
 </html>
