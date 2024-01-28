@@ -77,7 +77,7 @@ export class Jumping extends State {
       this.game.player.setState(states.FALLING, 1);
     } else if(input.includes("Control")) {
       this.game.player.setState(states.ROLLING, 2);
-    } else if(input.includes("ArrowDown")) {
+    } else if(input.includes("ArrowDown") && this.game.player.currentState === states[2]) {
       this.game.player.setState(states.DIVING, 0);
     }
   }
@@ -95,7 +95,7 @@ export class Falling extends State {
   handleInput(input) {
     if( this.game.player.onGround()) {
       this.game.player.setState(states.RUNNING, 1);
-    } else if(input.includes("ArrowDown")) {
+    } else if(input.includes("ArrowDown") && this.game.player.currentState === states[3]) {
       this.game.player.setState(states.DIVING, 0);
     }
   }

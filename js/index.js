@@ -2,14 +2,13 @@ import { Player } from "./player/index.js";
 import { InputHandler } from "./player/controls.js";
 import { Background } from "./background/index.js";
 import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from "./enemies/index.js";
-import { UI, LeaderBoard } from "./UI/index.js";
+import { UI, LeaderBoard, Tutorial } from "./UI/index.js";
 
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.screen.width;
   canvas.height = window.screen.height;
-  
   class Game {
     constructor(width, height) {
       this.width = width;
@@ -22,6 +21,7 @@ window.addEventListener("load", () => {
       this.keyInput = new InputHandler(this);
       this.UI = new UI(this);
       this.leaderBoard = new LeaderBoard(this);
+      this.tutorialView = new Tutorial(this);
       this.enemies = [];
       this.particles = [];
       this.collisions = []
@@ -31,22 +31,28 @@ window.addEventListener("load", () => {
       this.debug = false;
       this.score = 0;
       this.fontColor = "white";
-      this.timer = 0;
-      this.maxTime = 10000000;
+      this.timer = 30000;
       this.gameOver = false;
+      this.tutorial = true;
       this.player.currentState = this.player.states[0];
       this.player.currentState.enter();
     };
     update(deltaTime) {
-      if(!this.gameOver) this.timer += deltaTime;
-      if(this.timer > this.maxTime) {
+      this.tutorialView.draw();
+      if(this.keyInput.keys.includes("Enter") && this.tutorial) this.tutorial = false;
+      if(!this.gameOver && !this.tutorial) this.timer -= deltaTime;
+      if(this.timer < 0) {
         this.gameOver = true;
       }
       this.background.update();
       this.player.update(this.keyInput.keys, deltaTime);
-      if(!game.gameOver && this.enemyTimer > this.enemyInterval) {
+      if(
+          !game.gameOver &&
+          !game.tutorial &&
+          this.enemyTimer > this.enemyInterval
+      ) {
         this.addEnemy();
-        this.enemyTimer = 0;
+        this.enemyTimer = 50;
       } else {
         this.enemyTimer += deltaTime;
       }
@@ -100,7 +106,7 @@ window.addEventListener("load", () => {
     resetGame() {
       const reload = document.getElementById("reloadBtn");
       reload.addEventListener("click", () => {
-        this.timer = 0;
+        this.timer = 10000;
         this.score = 0;
         this.player.x = 0;
         this.gameOver = false;
