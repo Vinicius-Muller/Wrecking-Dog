@@ -106,7 +106,7 @@ window.addEventListener("load", () => {
     resetGame() {
       const reload = document.getElementById("reloadBtn");
       reload.addEventListener("click", () => {
-        this.timer = 10000;
+        this.timer = 30000;
         this.score = 0;
         this.player.x = 0;
         this.gameOver = false;
