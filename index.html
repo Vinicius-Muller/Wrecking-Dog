@@ -26,16 +26,22 @@
   <audio id="hitSound" src="./assets/sounds/hit.wav"></audio>
   <audio id="explosionSound" src="./assets/sounds/explosion.wav"></audio>
   <audio id="flameSound" src="./assets/sounds/shortflame.wav"></audio>
+  <audio id="winSound" src="./assets/sounds/win.wav"></audio>
   <main id="leaderBoard" class="leader-board">
-    <h1>Congratulations !</h1>
+    <h1>Parabéns !</h1>
     <div class="divider"></div>
     <h4>Pontos: <strong id="score"></strong></h4>
-    <h4>tempo: <strong id="time"></strong></h4>
     <div class="divider"></div>
     <div class="btn-wrap">
       <button id="reloadBtn">Tentar Novamente</button>
     </div>
   </main>
+  <article id="tutorialView" class="tutorial-view">
+    <h3>Use as teclas a seguir para controlar o personagem</h3>
+    <img src="./assets/images/arrows.jpg" alt="Comandos">
+    <h3>Use a tecla <strong>Ctrl</strong> para acionar o poder de fogo</h3>
+    <h3>Precione a tecla <strong>Enter</strong> para começar</h3>
+  </article>
   <script type="module" src="./js/index.js"></script>
 </body>
 </html>

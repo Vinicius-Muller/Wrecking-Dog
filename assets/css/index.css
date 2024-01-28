@@ -67,3 +67,39 @@ img, audio {
   border: none;
   font-family: "Sixtyfour";
 }
+
+.tutorial-view {
+  position: absolute;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 500px;
+  min-height: 500px;
+  border-radius: 5px;
+  font-family: "Sixtyfour";
+  font-size: 1.3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--background-green);
+  text-shadow: 1px 1px 2px black;
+}
+
+.tutorial-view h3 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.tutorial-view h3 strong {
+  font-size: 1.5rem;
+  border: 1px;
+  text-shadow: 1px 1px 2px yellow;
+}
+
+.tutorial-view img {
+  display: initial !important;
+  height: 200px;
+  width: 300px;
+}

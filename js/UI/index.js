@@ -36,13 +36,14 @@ export class LeaderBoard {
     this.game = game;
     this.buildKey = 0;
     this.element = document.getElementById("leaderBoard");
+    this.winSound = document.getElementById("winSound");
   };
 
   draw() {
     if(this.game.gameOver) {
       document.getElementById("score").innerText = this.game.score;
-      document.getElementById("time").innerText = `${(this.game.timer * 0.001).toFixed(0)}s`;
       this.element.style.display = "initial";
+      this.winSound.play();
     }
   };
 
@@ -50,4 +51,17 @@ export class LeaderBoard {
     this.element.style.display = "none";
     this.buildKey = 0;
   };
-}
+};
+
+export class Tutorial extends UI {
+  constructor(game) {
+    super();
+    this.game = game;
+    this.tutorialView = document.getElementById("tutorialView");
+  };
+
+  draw() {
+    if(this.game.tutorial) this.tutorialView.style.display = "flex";
+    else this.tutorialView.style.display = "none";
+  };
+};
