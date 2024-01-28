@@ -1,6 +1,8 @@
 export class CollisionAnimation {
-  constructor(game, x, y) {
+  constructor(game, point, hit, x, y) {
     this.game = game;
+    this.point = point;
+    this.hit = hit,
     this.image = document.getElementById("collisionAnimation");
     this.spriteWidth = 100;
     this.spriteHeight = 90;
@@ -8,13 +10,15 @@ export class CollisionAnimation {
     this.width = this.spriteWidth * this.sizeModifier;
     this.height = this.spriteHeight * this.sizeModifier;
     this.x = x - this.width * 0.5;
-    this.y = y - this.width * 0.5;
+    this.y = y - this.height * 0.5;
     this.frameX = 0;
     this.maxFrame = 4;
     this.markedToDeletion = false;
     this.fps = Math.random() * 10 + 5;
     this.frameInterval = 1000 / this.fps;
     this.frameTimer = 0;
+    this.fontSize = 30;
+    this.fontFamily = "Sixtyfour";
   };
   
   update(deltaTime) {
@@ -41,4 +45,10 @@ export class CollisionAnimation {
       this.height
     );
   };
+
+  drawPoint(context) {
+    context.font = this.fontSize + "px " + this.fontFamily;
+    context.fillStyle = this.hit ? "yellow" : "red";
+    context.fillText(this.point, this.x + (this.width * 0.3), this.y);
+  }
 }

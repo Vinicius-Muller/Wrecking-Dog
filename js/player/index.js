@@ -8,7 +8,6 @@ import {
   Hit
 } from "./playerStates.js";
 import { CollisionAnimation } from "../particle/collisionAnimation.js";
-
 export class Player {
   constructor(game) {
     this.game = game;
@@ -41,17 +40,14 @@ export class Player {
     this.checkCollision();
     this.currentState.handleInput(input);
     this.x += this.speed;
-    if(input.includes("ArrowRight")) this.speed = this.maxSpeed;
-    else if(input.includes("ArrowLeft")) this.speed = -this.maxSpeed;
+    if(input.includes("ArrowRight") && this.currentState !== this.states[6]) this.speed = this.maxSpeed;
+    else if(input.includes("ArrowLeft") && this.currentState !== this.states[6]) this.speed = -this.maxSpeed;
     else this.speed = 0;
-    //horizontal boundaries
     if(this.x < 0) this.x = 0;
     if(this.x > this.game.width - this.width) this.x = this.game.width - this.width;
-    //vertical movement
     this.y += this.vy;
     if(!this.onGround()) this.vy += this.weight;
     else this.vy = 0;
-    //vertical boundaries
     if(
       this.y > 
       this.game.height - 
@@ -70,7 +66,6 @@ export class Player {
     } else {
       this.frameTimer += deltaTime;
     }
-
   };
   draw(context) {
     if(this.game.debug) {
@@ -113,19 +108,30 @@ export class Player {
         this.game.collisions.push(
           new CollisionAnimation(
             this.game,
+            enemy.point,
+            this.hitPoint(),
             enemy.x + enemy.width * 0.5,
             enemy.y + enemy.height * 0.5
           )
         );
-        if(
-          this.currentState === this.states[4] ||
-          this.currentState === this.states[5]
-        ) {
-          this.game.score++;
+        if(this.hitPoint()) {
+          this.game.score += enemy.point;
+          const explosionSound = document.getElementById("explosionSound");
+          explosionSound.play();
+          explosionSound.currentTime = 0;
+          
         } else {
+          if(this.game.score > 0) this.game.score -= enemy.point;
           this.setState(6, 0);
+          const hitSound = document.getElementById("hitSound");
+          hitSound.play();
+          hitSound.currentTime = 0;
         }
       }
     });
+  };
+
+  hitPoint() {
+    return (this.currentState === this.states[4] || this.currentState === this.states[5]);
   }
 }
