@@ -8,7 +8,6 @@ import {
   Hit
 } from "./playerStates.js";
 import { CollisionAnimation } from "../particle/collisionAnimation.js";
-
 export class Player {
   constructor(game) {
     this.game = game;
@@ -109,19 +108,20 @@ export class Player {
         this.game.collisions.push(
           new CollisionAnimation(
             this.game,
+            enemy.point,
+            this.hitPoint(),
             enemy.x + enemy.width * 0.5,
             enemy.y + enemy.height * 0.5
           )
         );
-        if(
-          this.currentState === this.states[4] ||
-          this.currentState === this.states[5]
-        ) {
-          this.game.score++;
+        if(this.hitPoint()) {
+          this.game.score += enemy.point;
           const explosionSound = document.getElementById("explosionSound");
           explosionSound.play();
           explosionSound.currentTime = 0;
+          
         } else {
+          if(this.game.score > 0) this.game.score -= enemy.point;
           this.setState(6, 0);
           const hitSound = document.getElementById("hitSound");
           hitSound.play();
@@ -129,5 +129,9 @@ export class Player {
         }
       }
     });
+  };
+
+  hitPoint() {
+    return (this.currentState === this.states[4] || this.currentState === this.states[5]);
   }
 }

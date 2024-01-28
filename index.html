@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
   <title>Wrecking Dog</title>
 </head>
 <body>
@@ -22,6 +26,16 @@
   <audio id="hitSound" src="./assets/sounds/hit.wav"></audio>
   <audio id="explosionSound" src="./assets/sounds/explosion.wav"></audio>
   <audio id="flameSound" src="./assets/sounds/shortflame.wav"></audio>
+  <main id="leaderBoard" class="leader-board">
+    <h1>Congratulations !</h1>
+    <div class="divider"></div>
+    <h4>Pontos: <strong id="score"></strong></h4>
+    <h4>tempo: <strong id="time"></strong></h4>
+    <div class="divider"></div>
+    <div class="btn-wrap">
+      <button id="reloadBtn">Tentar Novamente</button>
+    </div>
+  </main>
   <script type="module" src="./js/index.js"></script>
 </body>
 </html>

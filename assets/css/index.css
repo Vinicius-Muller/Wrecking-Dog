@@ -1,7 +1,15 @@
+:root {
+  --background-green:#3ea83e;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/Battleground3/Pale/jungle_bg.png")
 }
 
 .canvas {
@@ -16,4 +24,46 @@
 
 img, audio {
   display: none !important;
+}
+
+.leader-board {
+  display: none;
+  background-color: white;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  font-family: "Sixtyfour";
+}
+
+.leader-board .divider {
+  height: 0.5px;
+  background-color: black;
+  opacity: 0.2;
+  margin: 20px;
+}
+
+.leader-board h4 {
+  padding: 10px 0;
+}
+
+.leader-board strong {
+  color: var(--background-green);
+}
+
+.leader-board .btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.leader-board .btn-wrap button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: var(--background-green);
+  color: white;
+  border: none;
+  font-family: "Sixtyfour";
 }
