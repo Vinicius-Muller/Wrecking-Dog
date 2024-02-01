@@ -41,6 +41,7 @@ export class LeaderBoard {
 
   draw() {
     if(this.game.gameOver) {
+      document.getElementById("endMsg").innerHTML = this.game.score > 0 ? "Parabéns !" : "Fracassou !"
       document.getElementById("score").innerText = this.game.score;
       this.element.style.display = "initial";
       this.winSound.play();
